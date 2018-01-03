@@ -23,7 +23,7 @@ def main():
     #   until you get to TO DO 9 and 10.
     # ------------------------------------------------------------------
     run_test_draw_shapes()
-    # run_test_rectangles_from_circles()
+    run_test_rectangles_from_circles()
 
 
 def run_test_make_simple_list():
@@ -398,7 +398,7 @@ def rectangles_from_circles(circles):
       :rtype: list of rg.Rectangles
     """
     # ------------------------------------------------------------------
-    # TODO: 10. Implement and test this function.
+    # DONE: 10. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -409,6 +409,18 @@ def rectangles_from_circles(circles):
     #            in this function, so DON'T draw anything in here!
     ####################################################################
     # ------------------------------------------------------------------
+
+    list = []
+    for k in range(len(circles)):
+        x = circles[k].center.x - circles[k].radius
+        y = circles[k].center.y - circles[k].radius
+        x2 = circles[k].center.x + circles[k].radius
+        y2 = circles[k].center.y + circles[k].radius
+        corner1 = rg.Point(x,y)
+        corner2 = rg.Point(x2,y2)
+        list = list + [rg.Rectangle(corner1, corner2)]
+    return list
+
 
 
 # ----------------------------------------------------------------------
